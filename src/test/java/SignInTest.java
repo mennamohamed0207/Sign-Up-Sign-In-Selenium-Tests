@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SigninPage;
 import utiles.DriverMange.DriverManager;
+import utils.commonHelper.AssertionHelper;
 
 public class SignInTest  extends  BaseTest{
     HomePage Home;
@@ -17,5 +18,7 @@ public class SignInTest  extends  BaseTest{
     public  void SignIn(){
         Home.clickOnSignInUpLink();
         SigninPage.EnterLoginEmail().enterLoginPassword().clickOnLoginBtn();
+        SigninPage.waitForLoginButton();
+        AssertionHelper.assertUrl(SigninPage.driver,"https://www.automationexercise.com/");
     }
 }

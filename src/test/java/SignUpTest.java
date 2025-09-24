@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SignupPage;
 import utiles.DriverMange.DriverManager;
+import utils.commonHelper.AssertionHelper;
 
 public class SignUpTest extends  BaseTest {
     HomePage Home ;
@@ -25,8 +26,9 @@ public class SignUpTest extends  BaseTest {
                 .enterAddress("Address").chooseCountry("India").enterState("state").enterCity("city")
                 .enterZipCode("+20").enterMobileNumber("0100")
                 .clickOnCreateAccountBtn();
-        Home.clickOnSignInUpLink();
-        signupPage.clickOnLogOnBtn();
+        AssertionHelper.assertUrl(signupPage.driver,"https://www.automationexercise.com/account_created");
+//        Home.clickOnSignInUpLink();
+//        signupPage.clickOnLogOnBtn();
     }
 
 }

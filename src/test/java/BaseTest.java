@@ -12,6 +12,6 @@ public class BaseTest {
 
     @AfterTest
     public void closeDriver(){
-       // utiles.DriverMange.DriverManager.closeDriver();
+        utiles.DriverMange.DriverManager.closeDriver();
     }
 }

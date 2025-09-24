@@ -7,7 +7,7 @@ import utiles.commonHelper.ElementHelper;
 import utiles.commonHelper.Global;
 
 public class SignupPage {
-    WebDriver driver;
+    public WebDriver driver;
     Global global;
     By Name = By.name("name");
     By Email = By.xpath("//input[@data-qa='signup-email']");
@@ -128,5 +128,6 @@ public class SignupPage {
         ElementHelper.click(driver, LogOutBtn);
         return this;
     }
+
 
 }
