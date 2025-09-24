@@ -1,30 +1,32 @@
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.SignUpPage;
-import utils.commonHelper.Globals;
+import pages.SignupPage;
+import utiles.DriverMange.DriverManager;
 
-public class SignUpTest extends BaseTest{
+public class SignUpTest extends  BaseTest {
     HomePage Home ;
-    SignUpPage signupPage ;
+    SignupPage signupPage ;
 
     @BeforeTest
     public void setup(){
-        Home= new HomePage(DriverManager.getDriver());
-        signupPage=new SignUpPage(DriverManager.getDriver());
+        Home= new HomePage();
+        signupPage=new SignupPage();
     }
-    @Test(testName = "Signup", groups = "regression",priority =1)
+    @Test(testName = "Signup", groups = "regression")
     public  void signupHappyPathFlow (){
         Home.clickOnSignInUpLink();
-        signupPage.enterName(Globals.name).EnterEmail(Globals.email).clickOnSignupBtn()
+        signupPage.enterName("Ahmed").EnterEmail().clickOnSignupBtn()
                 .chooseGender("Mrs")
-                .enterPassword(Globals.password)
+                .enterPassword()
                 .chooseDay("6").chooseMonth("March").chooseYear("2003")
                 .checkOnNewsletter()
                 .enterFirstName("Mo").enterLastName("Mo")
                 .enterAddress("Address").chooseCountry("India").enterState("state").enterCity("city")
-                .enterZipCode("+20").enterMobileNumber(Globals.mobileNumber)
+                .enterZipCode("+20").enterMobileNumber("0100")
                 .clickOnCreateAccountBtn();
+        Home.clickOnSignInUpLink();
+        signupPage.clickOnLogOnBtn();
     }
 
 }

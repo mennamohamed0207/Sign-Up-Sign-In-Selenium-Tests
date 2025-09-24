@@ -1,16 +1,17 @@
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import utils.commonHelper.Globals;
+import utiles.DriverMange.DriverManager;
 
 public class BaseTest {
+
     @BeforeTest
     public void Init() {
         DriverManager.driverSetup();
-        Globals.intializeRandomFields();
     }
 
     @AfterTest
     public void closeDriver(){
-        //DriverManager.closeDriver();
+       // utiles.DriverMange.DriverManager.closeDriver();
     }
 }
